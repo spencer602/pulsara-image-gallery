@@ -13,6 +13,7 @@
 		0985C98524A3C01000C7AA19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0985C98324A3C01000C7AA19 /* Main.storyboard */; };
 		0985C98724A3C01300C7AA19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0985C98624A3C01300C7AA19 /* Assets.xcassets */; };
 		0985C98A24A3C01300C7AA19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0985C98824A3C01300C7AA19 /* LaunchScreen.storyboard */; };
+		0985C99224A3C36900C7AA19 /* DataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985C99124A3C36900C7AA19 /* DataRetriever.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0985C98624A3C01300C7AA19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0985C98924A3C01300C7AA19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0985C98B24A3C01300C7AA19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0985C99124A3C36900C7AA19 /* DataRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRetriever.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		0985C97124A3C01000C7AA19 = {
 			isa = PBXGroup;
 			children = (
+				0985C99124A3C36900C7AA19 /* DataRetriever.swift */,
 				0985C97C24A3C01000C7AA19 /* Pulsara Image Gallery */,
 				0985C97B24A3C01000C7AA19 /* Products */,
 			);
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0985C99224A3C36900C7AA19 /* DataRetriever.swift in Sources */,
 				0985C98224A3C01000C7AA19 /* ViewController.swift in Sources */,
 				0985C97E24A3C01000C7AA19 /* AppDelegate.swift in Sources */,
 				0985C98024A3C01000C7AA19 /* SceneDelegate.swift in Sources */,
