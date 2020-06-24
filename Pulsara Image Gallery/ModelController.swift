@@ -36,6 +36,7 @@ class ModelController {
         } else {
             DispatchQueue.global(qos: .userInitiated).async {
                 if let image = self.dataRetriever.getImage(with: id, width: self.thumbnailSize.width, height: self.thumbnailSize.height) {
+                    self.thumbnails[id] = image
                     completionClosure(image)
                 }
             }
