@@ -21,7 +21,6 @@ class DataRetriever {
                     print("success")
                     return image
                 }
-                
             }
         }
         print("some error")
