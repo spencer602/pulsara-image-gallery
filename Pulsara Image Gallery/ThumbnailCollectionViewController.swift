@@ -22,23 +22,28 @@ class ThumbnailCollectionViewController: UIViewController {
     
     @IBOutlet weak var thumbnailCollectionView: UICollectionView!
     
-    let modelController = ModelController(thumbWidth: 200, thumbHeight: 200, fullWidth: 600, fullHeight: 600)
+    let modelController = ModelController(thumbWidth: 150, thumbHeight: 150, fullWidth: 600, fullHeight: 600)
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let detailVC = segue.destination as? ImageDetailTableViewController {
+            if let senderCell = sender as? ThumbnailCollectionViewCell {
+                modelController.fetchFullSizeImage(with: senderCell.id) { image in
+                    DispatchQueue.main.async {
+                        detailVC.image = image
+                    }
+                }
+            }
+        }
     }
-    */
-
 }
 
 extension ThumbnailCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        print("thumb size: \(collectionView.frame.width/3.1)")
         return CGSize(width: collectionView.frame.width/3.1, height: collectionView.frame.width/3.1)
     }
     

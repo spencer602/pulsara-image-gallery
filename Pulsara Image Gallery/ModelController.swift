@@ -46,5 +46,18 @@ class ModelController {
         }
         
     }
+    
+    func fetchFullSizeImage(with id: Int, _ completionClosure: @escaping (UIImage) -> Void) {
+        print("entered fetch in mc")
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            if let image = self.dataRetriever.getImage(with: id, width: self.fullImageSize.width, height: self.fullImageSize.height) {
+                if self.cacheThumbnails { self.thumbnails[id] = image }
+                completionClosure(image)
+            }
+        }
+       
+        
+    }
         
 }
