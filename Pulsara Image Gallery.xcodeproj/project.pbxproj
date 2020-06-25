@@ -16,6 +16,7 @@
 		0985C99424A3DE2B00C7AA19 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985C99324A3DE2B00C7AA19 /* ModelController.swift */; };
 		0985C9A024A456AF00C7AA19 /* ThumbnailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985C99F24A456AF00C7AA19 /* ThumbnailCollectionViewController.swift */; };
 		0985C9A224A4572700C7AA19 /* ThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985C9A124A4572700C7AA19 /* ThumbnailCollectionViewCell.swift */; };
+		0985C9A824A4753100C7AA19 /* ImageDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985C9A724A4753100C7AA19 /* ImageDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		0985C99324A3DE2B00C7AA19 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		0985C99F24A456AF00C7AA19 /* ThumbnailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewController.swift; sourceTree = "<group>"; };
 		0985C9A124A4572700C7AA19 /* ThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
+		0985C9A724A4753100C7AA19 /* ImageDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 		0985C97124A3C01000C7AA19 = {
 			isa = PBXGroup;
 			children = (
+				0985C9A724A4753100C7AA19 /* ImageDetailTableViewController.swift */,
 				0985C99124A3C36900C7AA19 /* DataRetriever.swift */,
 				0985C97C24A3C01000C7AA19 /* Pulsara Image Gallery */,
 				0985C97B24A3C01000C7AA19 /* Products */,
@@ -150,6 +153,7 @@
 				0985C99224A3C36900C7AA19 /* DataRetriever.swift in Sources */,
 				0985C99424A3DE2B00C7AA19 /* ModelController.swift in Sources */,
 				0985C9A024A456AF00C7AA19 /* ThumbnailCollectionViewController.swift in Sources */,
+				0985C9A824A4753100C7AA19 /* ImageDetailTableViewController.swift in Sources */,
 				0985C97E24A3C01000C7AA19 /* AppDelegate.swift in Sources */,
 				0985C98024A3C01000C7AA19 /* SceneDelegate.swift in Sources */,
 				0985C9A224A4572700C7AA19 /* ThumbnailCollectionViewCell.swift in Sources */,
