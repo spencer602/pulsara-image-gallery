@@ -46,7 +46,6 @@ class ImageZoomerViewController: UIViewController {
         // if the device flips orientation, the frames of the scrollView and imageView need reset
         scrollView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height)
         imageView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height)
-
     }
 }
 
