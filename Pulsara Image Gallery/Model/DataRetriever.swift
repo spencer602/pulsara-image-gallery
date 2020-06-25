@@ -46,7 +46,10 @@ class DataRetriever {
                 // retrieve the location name from the json data
                 imageID = jsonResult["id"] as? Int
                 author = jsonResult["author"] as? String
-        
+                width = jsonResult["width"] as? Int
+                height = jsonResult["height"] as? Int
+                imageURL = jsonResult["url"] as? String
+                downloadURL = jsonResult["download_url"] as? String
             }
             
             completionClosure(imageID, author, width, height, imageURL, downloadURL)
