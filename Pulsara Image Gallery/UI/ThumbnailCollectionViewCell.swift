@@ -8,10 +8,13 @@
 
 import UIKit
 
+/// a custom CollectionViewCell to display thumbnails, activity spinners, and keep track of the image id
 class ThumbnailCollectionViewCell: UICollectionViewCell {
     
+    /// image id
     var id: Int!
     
+    // outlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
 }

@@ -8,12 +8,21 @@
 
 import UIKit
 
+/// a class for viewing a full resolution version of the image with zoom and pan functionality
 class ImageZoomerViewController: UIViewController {
 
+    // outlets
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    /// the image we will display, when set, update the imageView outlet
     var image: UIImage? { didSet { DispatchQueue.main.async {
         self.imageView?.image = self.image
         self.spinner?.stopAnimating()
     } } }
+    
+    // MARK: - View Controller Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,25 +32,13 @@ class ImageZoomerViewController: UIViewController {
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 15.0
         
+        // set the image in the case where the image var was set, but the outlet was still nil,
+        // so the outlet wasn't updated. Here the outlets are guaranteed to not be nil
         imageView.image = image
         
+        // show that there is loading activity if the image is still nil
         image == nil ? spinner.startAnimating() : spinner.stopAnimating()
     }
-    
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ImageZoomerViewController: UIScrollViewDelegate {
