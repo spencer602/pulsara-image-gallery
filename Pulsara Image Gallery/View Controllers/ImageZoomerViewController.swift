@@ -12,6 +12,7 @@ class ImageZoomerViewController: UIViewController {
 
     var image: UIImage? { didSet { DispatchQueue.main.async {
         self.imageView?.image = self.image
+        self.spinner?.stopAnimating()
     } } }
     
     override func viewDidLoad() {
@@ -19,14 +20,17 @@ class ImageZoomerViewController: UIViewController {
 
         scrollView.delegate = self
         
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 15.0
+        
         imageView.image = image
         
-        // Do any additional setup after loading the view.
+        image == nil ? spinner.startAnimating() : spinner.stopAnimating()
     }
-    
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     /*
     // MARK: - Navigation

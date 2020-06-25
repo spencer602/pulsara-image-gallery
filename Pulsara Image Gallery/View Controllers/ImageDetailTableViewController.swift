@@ -42,6 +42,8 @@ class ImageDetailTableViewController: UITableViewController {
         return dimString
     }
     
+    private var zoomerImage: UIImage?
+    
     var imageURL: String?
     var downloadURL: String?
     
@@ -54,6 +56,12 @@ class ImageDetailTableViewController: UITableViewController {
         
         let stringData = imageID == nil ? "No ID Data" : "\(imageID!)"
         IDLabel.text = "ID: \(stringData)"
+        
+        if let id = imageID {
+            modelController.fetchImageNativeSize(with: id) { image in
+                self.zoomerImage = image
+            }
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -126,8 +134,11 @@ class ImageDetailTableViewController: UITableViewController {
         if let zoomerVC = segue.destination as? ImageZoomerViewController {
             if let imageCell = sender as? UITableViewCell {
                 if let id = imageID {
-                    modelController.fetchImageNativeSize(with: id) { image in
-                        zoomerVC.image = image
+                    if let zoom = zoomerImage { zoomerVC.image = zoom }
+                    else {
+                        modelController.fetchImageNativeSize(with: id) { image in
+                            zoomerVC.image = image
+                        }
                     }
                 }
             }
