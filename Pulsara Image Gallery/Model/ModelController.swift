@@ -33,7 +33,6 @@ class ModelController {
     }
     
     func fetchThumbnailImage(with id: Int, _ completionClosure: @escaping (UIImage) -> Void) {
-        print("entered fetch in mc")
         if let cached = thumbnails[id] {
             completionClosure(cached)
         } else {
@@ -44,20 +43,22 @@ class ModelController {
                 }
             }
         }
-        
     }
     
     func fetchFullSizeImage(with id: Int, _ completionClosure: @escaping (UIImage) -> Void) {
-        print("entered fetch in mc")
-        
         DispatchQueue.global(qos: .userInitiated).async {
             if let image = self.dataRetriever.getImage(with: id, width: self.fullImageSize.width, height: self.fullImageSize.height) {
                 if self.cacheThumbnails { self.thumbnails[id] = image }
                 completionClosure(image)
             }
         }
-       
-        
     }
-        
+    
+    func fetchImageInfo(with id: Int, _ completionClosure: @escaping (Int?, String?, Int?, Int?, String?, String?) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.dataRetriever.fetchImageInfo(with: id) { imageID, author, width, height, imageURL, downloadURL in
+                completionClosure(imageID, author, width, height, imageURL, downloadURL)
+            }
+        }
+    }
 }

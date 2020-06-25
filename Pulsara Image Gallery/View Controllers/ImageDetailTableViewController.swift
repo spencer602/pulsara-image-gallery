@@ -10,14 +10,26 @@ import UIKit
 
 class ImageDetailTableViewController: UITableViewController {
 
-    var image: UIImage? { didSet { DispatchQueue.main.async { self.imageView?.image = self.image } } }
-    var author: String? { didSet { DispatchQueue.main.async { self.authorLabel?.text = self.author } } }
+    var image: UIImage? { didSet { DispatchQueue.main.async {
+        self.imageView?.image = self.image
+        } } }
+    
+    var author: String? { didSet { DispatchQueue.main.async {
+        self.authorLabel?.text = "Author: \(self.author ?? "No Author Data")"
+        } } }
+    
+    var imageID: Int?
+    var imageWidth: Int?
+    var imageHeight: Int?
+    var imageURL: String?
+    var downloadURL: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imageView.image = image
-        authorLabel.text = author
+        
+        authorLabel.text = "Author: \(author ?? "No Author Data")"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,17 +40,15 @@ class ImageDetailTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+    
+    @IBOutlet var detailTableView: UITableView!
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if tableView.cellForRow(at: indexPath) === imageViewCell {
-            print("##############ok, success at row \(indexPath.row)")
-            return tableView.frame.width
-        }
+        if indexPath.row == 0 { return tableView.frame.width }
         
-        if indexPath.row == 0 {
-            print("##############ok, success at row \(indexPath.row)")
-            print("\(tableView.frame.width)")
-            return tableView.frame.width
-        }
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
 

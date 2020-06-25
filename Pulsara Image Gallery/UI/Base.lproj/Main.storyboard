@@ -91,14 +91,14 @@
                         <sections>
                             <tableViewSection id="2aI-dR-VGQ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="414" id="R7k-lI-e0v" userLabel="Image View Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="414" id="R7k-lI-e0v" userLabel="Image View Cell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="414"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R7k-lI-e0v" id="tbZ-6A-XjD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wEB-td-BeQ">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wEB-td-BeQ">
                                                     <rect key="frame" x="20" y="11" width="374" height="392"/>
                                                 </imageView>
                                             </subviews>
@@ -110,7 +110,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mcb-qD-Oqv" userLabel="Author Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="mcb-qD-Oqv" userLabel="Author Cell">
                                         <rect key="frame" x="0.0" y="442" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mcb-qD-Oqv" id="3Zd-q3-nPN">
@@ -118,17 +118,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1P-eC-vxz" userLabel="Author Label">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <rect key="frame" x="20" y="8" width="374" height="28"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="z1P-eC-vxz" firstAttribute="top" secondItem="3Zd-q3-nPN" secondAttribute="top" constant="11" id="17q-0X-BYO"/>
+                                                <constraint firstItem="z1P-eC-vxz" firstAttribute="top" secondItem="3Zd-q3-nPN" secondAttribute="top" constant="8" id="56S-GF-UzL"/>
                                                 <constraint firstItem="z1P-eC-vxz" firstAttribute="leading" secondItem="3Zd-q3-nPN" secondAttribute="leading" constant="20" id="QTB-Bc-Wmy"/>
                                                 <constraint firstAttribute="trailing" secondItem="z1P-eC-vxz" secondAttribute="trailing" constant="20" id="TfP-D5-6wt"/>
-                                                <constraint firstAttribute="bottom" secondItem="z1P-eC-vxz" secondAttribute="bottom" constant="12" id="m2K-du-wsB"/>
+                                                <constraint firstAttribute="bottom" secondItem="z1P-eC-vxz" secondAttribute="bottom" constant="8" id="cdD-8S-VJo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
