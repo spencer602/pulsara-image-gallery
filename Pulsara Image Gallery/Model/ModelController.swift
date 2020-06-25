@@ -55,12 +55,10 @@ class ModelController {
     func fetchThumbnailImage(with id: Int, _ completionClosure: @escaping (UIImage) -> Void) {
         // if we have the image cached, pull it from the cache
         if let cached = thumbnails[id] { completionClosure(cached) } else {
-            DispatchQueue.global(qos: .userInitiated).async {
-                if let image = self.dataRetriever.getImage(with: id, width: self.thumbnailSize.width, height: self.thumbnailSize.height) {
-                    // if the current settings are to cache the images, this is where we add the image to the cache(dictionary)
-                    if self.cacheThumbnails { self.thumbnails[id] = image }
-                    completionClosure(image)
-                }
+            fetchImage(with: id, width: thumbnailSize.width, height: thumbnailSize.height) { image in
+                // if the current settings are to cache the images, this is where we add the image to the cache(dictionary)
+                if self.cacheThumbnails { self.thumbnails[id] = image }
+                completionClosure(image)
             }
         }
     }
@@ -72,11 +70,7 @@ class ModelController {
     - Parameter completionClosure: the closure to execute after attempting to fetch the image; use this to assign the fetched image asynchronously
     */
     func fetchLargeSizeImage(with id: Int, _ completionClosure: @escaping (UIImage) -> Void) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            if let image = self.dataRetriever.getImage(with: id, width: self.largeImageSize.width, height: self.largeImageSize.height) {
-                completionClosure(image)
-            }
-        }
+        fetchImage(with: id, width: largeImageSize.width, height: largeImageSize.height, completionClosure)
     }
     
     /**
@@ -89,6 +83,39 @@ class ModelController {
         DispatchQueue.global(qos: .userInitiated).async {
             self.dataRetriever.fetchImageInfo(with: id) { imageID, author, width, height, imageURL, downloadURL in
                 completionClosure(imageID, author, width, height, imageURL, downloadURL)
+            }
+        }
+    }
+    
+    /**
+    attempts to fetch the image with the given identifier, in the native image size
+    
+    - Parameter id: the id for the requested image
+    - Parameter completionClosure: the closure to execute after attempting to fetch the image; use this to assign the fetched image asynchronously
+    */
+    func fetchImageNativeSize(with id: Int, _ completionClosure: @escaping (UIImage) -> Void ) {
+        var nativeHeight = 0
+        var nativeWidth = 0
+        
+        fetchImageInfo(with: id) { _, _, width, height, _, _  in
+            nativeWidth = width ?? nativeWidth
+            nativeHeight = height ?? nativeHeight
+            self.fetchImage(with: id, width: nativeWidth, height: nativeHeight, completionClosure)
+        }
+    }
+    
+    /**
+    attempts to fetch the image with the given identifier, with the given size
+    
+    - Parameter id: the id for the requested image
+    - Parameter width: the desired width of the image
+    - Parameter height: the desired height of the image
+    - Parameter completionClosure: the closure to execute after attempting to fetch the image; use this to assign the fetched image asynchronously
+    */
+    private func fetchImage(with id: Int, width: Int, height: Int, _ completionClosure: @escaping (UIImage) -> Void ) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            if let image = self.dataRetriever.getImage(with: id, width: width, height: height) {
+                completionClosure(image)
             }
         }
     }
