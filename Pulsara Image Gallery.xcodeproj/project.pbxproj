@@ -17,6 +17,7 @@
 		0985C9A024A456AF00C7AA19 /* ThumbnailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985C99F24A456AF00C7AA19 /* ThumbnailCollectionViewController.swift */; };
 		0985C9A224A4572700C7AA19 /* ThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985C9A124A4572700C7AA19 /* ThumbnailCollectionViewCell.swift */; };
 		0985C9A824A4753100C7AA19 /* ImageDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985C9A724A4753100C7AA19 /* ImageDetailTableViewController.swift */; };
+		09AD3DC324A536F5002927D3 /* ImageZoomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD3DC224A536F5002927D3 /* ImageZoomerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		0985C99F24A456AF00C7AA19 /* ThumbnailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewController.swift; sourceTree = "<group>"; };
 		0985C9A124A4572700C7AA19 /* ThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
 		0985C9A724A4753100C7AA19 /* ImageDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailTableViewController.swift; sourceTree = "<group>"; };
+		09AD3DC224A536F5002927D3 /* ImageZoomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				0985C9A724A4753100C7AA19 /* ImageDetailTableViewController.swift */,
+				09AD3DC224A536F5002927D3 /* ImageZoomerViewController.swift */,
 				0985C99F24A456AF00C7AA19 /* ThumbnailCollectionViewController.swift */,
 			);
 			path = "View Controllers";
@@ -174,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09AD3DC324A536F5002927D3 /* ImageZoomerViewController.swift in Sources */,
 				0985C99224A3C36900C7AA19 /* DataRetriever.swift in Sources */,
 				0985C99424A3DE2B00C7AA19 /* ModelController.swift in Sources */,
 				0985C9A024A456AF00C7AA19 /* ThumbnailCollectionViewController.swift in Sources */,

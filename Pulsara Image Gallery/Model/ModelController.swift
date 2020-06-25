@@ -12,6 +12,10 @@ import UIKit
 /// A class for interfacing with the Picsum API
 class ModelController {
     
+    // default image sizes
+    private static let thumbSize = 150
+    private static let largeSize = 600
+    
     /// the DataRetriever for handling network calls to the Picsum API
     private let dataRetriever = DataRetriever()
     
@@ -31,19 +35,12 @@ class ModelController {
     /// the size of the 'large' image size
     var largeImageSize: (width: Int, height: Int)
     
-    /**
-     initializes an instance of ModelController with the specified defualt thumbnail and large size
-
-     - Parameter thumbWidth: the preferred thumbnail width
-     - Parameter thumbHeight: the preferred thumbnail height
-     - Parameter largeWidth: the preferred large width
-     - Parameter largeHeight: the preferred thumbnail height
-     */
-    init(thumbWidth: Int, thumbHeight: Int, largeWidth: Int, largeHeight: Int) {
-        thumbnailSize.width = thumbWidth
-        thumbnailSize.height = thumbHeight
-        largeImageSize.width = largeWidth
-        largeImageSize.height = largeHeight
+    /// initializes an instance of ModelController with the  default thumbnail and large size
+    init() {
+        thumbnailSize.width = Self.thumbSize
+        thumbnailSize.height = Self.thumbSize
+        largeImageSize.width = Self.largeSize
+        largeImageSize.height = Self.largeSize
     }
     
     /**
