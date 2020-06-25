@@ -39,6 +39,15 @@ class ImageZoomerViewController: UIViewController {
         // show that there is loading activity if the image is still nil
         image == nil ? spinner.startAnimating() : spinner.stopAnimating()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // if the device flips orientation, the frames of the scrollView and imageView need reset
+        scrollView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height)
+        imageView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height)
+
+    }
 }
 
 extension ImageZoomerViewController: UIScrollViewDelegate {
