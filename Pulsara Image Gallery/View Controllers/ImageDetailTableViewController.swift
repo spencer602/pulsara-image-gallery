@@ -18,9 +18,28 @@ class ImageDetailTableViewController: UITableViewController {
         self.authorLabel?.text = "Author: \(self.author ?? "No Author Data")"
         } } }
     
-    var imageID: Int?
-    var imageWidth: Int?
-    var imageHeight: Int?
+    var imageID: Int? { didSet { DispatchQueue.main.async {
+        let stringData = self.imageID == nil ? "No ID Data" : "\(self.imageID!)"
+        self.IDLabel?.text = "ID: \(stringData)"
+    } } }
+    
+    var imageWidth: Int? { didSet { DispatchQueue.main.async {
+        self.dimensionsLabel?.text = self.dimensionsString
+    } } }
+    
+    var imageHeight: Int? { didSet { DispatchQueue.main.async {
+        self.dimensionsLabel?.text = self.dimensionsString
+    } } }
+    
+    var dimensionsString: String {
+        var dimString = "Dimensions: "
+        if let width = imageWidth, let height = imageHeight {
+            dimString += "\(width)x\(height)"
+        } else { dimString += "No Dimension Data" }
+        
+        return dimString
+    }
+    
     var imageURL: String?
     var downloadURL: String?
     
@@ -30,6 +49,9 @@ class ImageDetailTableViewController: UITableViewController {
         imageView.image = image
         
         authorLabel.text = "Author: \(author ?? "No Author Data")"
+        
+        let stringData = imageID == nil ? "No ID Data" : "\(imageID!)"
+        IDLabel.text = "ID: \(stringData)"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -55,6 +77,8 @@ class ImageDetailTableViewController: UITableViewController {
     @IBOutlet weak var imageViewCell: UITableViewCell!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var IDLabel: UILabel!
+    @IBOutlet weak var dimensionsLabel: UILabel!
     
     // MARK: - Table view data source
 

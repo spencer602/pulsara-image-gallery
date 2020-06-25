@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// A class for downloading data from the Picsum API
 class DataRetriever {
     
     func getImage(with id: Int, width: Int, height: Int) -> UIImage? {
