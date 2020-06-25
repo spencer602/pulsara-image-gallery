@@ -10,13 +10,15 @@ import UIKit
 
 class ImageDetailTableViewController: UITableViewController {
 
+    var modelController: ModelController!
+    
     var image: UIImage? { didSet { DispatchQueue.main.async {
         self.imageView?.image = self.image
-        } } }
+    } } }
     
     var author: String? { didSet { DispatchQueue.main.async {
         self.authorLabel?.text = "Author: \(self.author ?? "No Author Data")"
-        } } }
+    } } }
     
     var imageID: Int? { didSet { DispatchQueue.main.async {
         let stringData = self.imageID == nil ? "No ID Data" : "\(self.imageID!)"
@@ -118,14 +120,20 @@ class ImageDetailTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let zoomerVC = segue.destination as? ImageZoomerViewController {
+            if let imageCell = sender as? UITableViewCell {
+                if let id = imageID {
+                    modelController.fetchImageNativeSize(with: id) { image in
+                        zoomerVC.image = image
+                    }
+                }
+            }
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

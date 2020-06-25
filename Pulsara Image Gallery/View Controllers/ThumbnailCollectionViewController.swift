@@ -30,7 +30,7 @@ class ThumbnailCollectionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailVC = segue.destination as? ImageDetailTableViewController {
             if let senderCell = sender as? ThumbnailCollectionViewCell {
-                
+                detailVC.modelController = modelController
                 detailVC.imageID = senderCell.id
                 
                 modelController.fetchThumbnailImage(with: senderCell.id) { image in
