@@ -31,12 +31,14 @@ class ThumbnailCollectionViewController: UIViewController {
         if let detailVC = segue.destination as? ImageDetailTableViewController {
             if let senderCell = sender as? ThumbnailCollectionViewCell {
                 
+                detailVC.imageID = senderCell.id
+                
                 modelController.fetchThumbnailImage(with: senderCell.id) { image in
                     detailVC.image = image
                 }
                 
                 modelController.fetchImageInfo(with: senderCell.id) { imageID, author, width, height, imageURL, downloadURL in
-                    detailVC.imageID = imageID
+                    // detailVC.imageID = imageID
                     detailVC.author = author
                     detailVC.imageWidth = width
                     detailVC.imageHeight = height
