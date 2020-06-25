@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Thumbnail Collection View Controller-->
+        <!--Thumbnails-->
         <scene sceneID="6J0-xk-3Rh">
             <objects>
                 <viewController id="Ohc-L5-acl" customClass="ThumbnailCollectionViewController" customModule="Pulsara_Image_Gallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,7 +71,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xbh-So-Wmm"/>
                     </view>
-                    <navigationItem key="navigationItem" id="f65-IP-MsZ"/>
+                    <navigationItem key="navigationItem" title="Thumbnails" id="f65-IP-MsZ"/>
                     <connections>
                         <outlet property="thumbnailCollectionView" destination="vpR-On-H4d" id="Zl9-0Q-XjB"/>
                     </connections>
@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="1202.8985507246377" y="194.86607142857142"/>
         </scene>
-        <!--Image Detail Table View Controller-->
+        <!--Info-->
         <scene sceneID="HDg-D1-NR3">
             <objects>
                 <tableViewController id="18Q-o3-ZFT" customClass="ImageDetailTableViewController" customModule="Pulsara_Image_Gallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -187,7 +187,7 @@
                             <outlet property="delegate" destination="18Q-o3-ZFT" id="ZXT-uE-oLQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="pU3-np-omD"/>
+                    <navigationItem key="navigationItem" title="Info" id="pU3-np-omD"/>
                     <connections>
                         <outlet property="IDLabel" destination="tOh-Jb-RKT" id="i7a-gP-4x9"/>
                         <outlet property="authorLabel" destination="z1P-eC-vxz" id="KFv-db-QHw"/>
@@ -199,7 +199,7 @@
             </objects>
             <point key="canvasLocation" x="2024.6376811594205" y="187.5"/>
         </scene>
-        <!--Image Zoomer View Controller-->
+        <!--Image Viewer-->
         <scene sceneID="Xls-az-Ozs">
             <objects>
                 <viewController id="GAu-uZ-OMj" customClass="ImageZoomerViewController" customModule="Pulsara_Image_Gallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -230,7 +230,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="khQ-UY-5PY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Bju-4O-Man"/>
+                    <navigationItem key="navigationItem" title="Image Viewer" id="Bju-4O-Man"/>
                     <connections>
                         <outlet property="imageView" destination="7oa-tE-k5k" id="RJ4-dJ-9eH"/>
                         <outlet property="scrollView" destination="YCI-D6-Ci2" id="JjU-ch-kZA"/>
