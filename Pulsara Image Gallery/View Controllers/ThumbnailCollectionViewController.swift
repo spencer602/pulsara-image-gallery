@@ -22,7 +22,7 @@ class ThumbnailCollectionViewController: UIViewController {
     
     @IBOutlet weak var thumbnailCollectionView: UICollectionView!
     
-    let modelController = ModelController(thumbWidth: 150, thumbHeight: 150, fullWidth: 600, fullHeight: 600)
+    let modelController = ModelController(thumbWidth: 150, thumbHeight: 150, largeWidth: 600, largeHeight: 600)
     
     // MARK: - Navigation
 
@@ -46,7 +46,7 @@ class ThumbnailCollectionViewController: UIViewController {
                     detailVC.downloadURL = downloadURL
                 }
                 
-                modelController.fetchFullSizeImage(with: senderCell.id) { image in
+                modelController.fetchLargeSizeImage(with: senderCell.id) { image in
                     detailVC.image = image
                 }
             }
