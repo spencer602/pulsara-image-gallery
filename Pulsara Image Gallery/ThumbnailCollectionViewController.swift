@@ -17,6 +17,9 @@ class ThumbnailCollectionViewController: UIViewController {
         thumbnailCollectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
+    
+    private var hightestIDDisplayedInCV = 0
+    
     @IBOutlet weak var thumbnailCollectionView: UICollectionView!
     
     let modelController = ModelController(thumbWidth: 200, thumbHeight: 200, fullWidth: 600, fullHeight: 600)
@@ -40,7 +43,7 @@ extension ThumbnailCollectionViewController: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return hightestIDDisplayedInCV + 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -53,13 +56,15 @@ extension ThumbnailCollectionViewController: UICollectionViewDelegate, UICollect
             modelController.fetchThumbnailImage(with: indexPath.item) { image in
                 if thumbCell.id == indexPath.item {
                     DispatchQueue.main.async {
+                        if indexPath.item >= self.hightestIDDisplayedInCV + 15 {
+                            self.hightestIDDisplayedInCV = indexPath.item
+                            collectionView.reloadData()
+                        }
                         thumbCell.imageView.image = image
                         thumbCell.spinner.stopAnimating()
                     }
                 }
             }
-            
-            
         }
         return cell
     }
