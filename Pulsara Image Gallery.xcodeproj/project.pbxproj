@@ -48,8 +48,6 @@
 		0985C97124A3C01000C7AA19 = {
 			isa = PBXGroup;
 			children = (
-				0985C9A724A4753100C7AA19 /* ImageDetailTableViewController.swift */,
-				0985C99124A3C36900C7AA19 /* DataRetriever.swift */,
 				0985C97C24A3C01000C7AA19 /* Pulsara Image Gallery */,
 				0985C97B24A3C01000C7AA19 /* Products */,
 			);
@@ -66,17 +64,43 @@
 		0985C97C24A3C01000C7AA19 /* Pulsara Image Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				0985C9AC24A5057700C7AA19 /* UI */,
+				0985C9AA24A5053E00C7AA19 /* Model */,
+				0985C9A924A5052400C7AA19 /* View Controllers */,
 				0985C97D24A3C01000C7AA19 /* AppDelegate.swift */,
 				0985C97F24A3C01000C7AA19 /* SceneDelegate.swift */,
-				0985C98324A3C01000C7AA19 /* Main.storyboard */,
-				0985C9A124A4572700C7AA19 /* ThumbnailCollectionViewCell.swift */,
-				0985C99F24A456AF00C7AA19 /* ThumbnailCollectionViewController.swift */,
-				0985C99324A3DE2B00C7AA19 /* ModelController.swift */,
 				0985C98624A3C01300C7AA19 /* Assets.xcassets */,
 				0985C98824A3C01300C7AA19 /* LaunchScreen.storyboard */,
 				0985C98B24A3C01300C7AA19 /* Info.plist */,
 			);
 			path = "Pulsara Image Gallery";
+			sourceTree = "<group>";
+		};
+		0985C9A924A5052400C7AA19 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0985C9A724A4753100C7AA19 /* ImageDetailTableViewController.swift */,
+				0985C99F24A456AF00C7AA19 /* ThumbnailCollectionViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		0985C9AA24A5053E00C7AA19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0985C99124A3C36900C7AA19 /* DataRetriever.swift */,
+				0985C99324A3DE2B00C7AA19 /* ModelController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0985C9AC24A5057700C7AA19 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0985C9A124A4572700C7AA19 /* ThumbnailCollectionViewCell.swift */,
+				0985C98324A3C01000C7AA19 /* Main.storyboard */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

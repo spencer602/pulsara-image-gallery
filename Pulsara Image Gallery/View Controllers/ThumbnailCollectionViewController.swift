@@ -30,10 +30,22 @@ class ThumbnailCollectionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailVC = segue.destination as? ImageDetailTableViewController {
             if let senderCell = sender as? ThumbnailCollectionViewCell {
+                
+                modelController.fetchThumbnailImage(with: senderCell.id) { image in
+                    detailVC.image = image
+                }
+                
+                modelController.fetchImageInfo(with: senderCell.id) { imageID, author, width, height, imageURL, downloadURL in
+                    detailVC.imageID = imageID
+                    detailVC.author = author
+                    detailVC.imageWidth = width
+                    detailVC.imageHeight = height
+                    detailVC.imageURL = imageURL
+                    detailVC.downloadURL = downloadURL
+                }
+                
                 modelController.fetchFullSizeImage(with: senderCell.id) { image in
-                    DispatchQueue.main.async {
-                        detailVC.image = image
-                    }
+                    detailVC.image = image
                 }
             }
         }
@@ -43,7 +55,6 @@ class ThumbnailCollectionViewController: UIViewController {
 extension ThumbnailCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("thumb size: \(collectionView.frame.width/3.1)")
         return CGSize(width: collectionView.frame.width/3.1, height: collectionView.frame.width/3.1)
     }
     
@@ -73,6 +84,4 @@ extension ThumbnailCollectionViewController: UICollectionViewDelegate, UICollect
         }
         return cell
     }
-    
-    
 }
