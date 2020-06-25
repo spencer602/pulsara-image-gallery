@@ -33,6 +33,7 @@ class ModelController {
     }
     
     func fetchThumbnailImage(with id: Int, _ completionClosure: @escaping (UIImage) -> Void) {
+        print("entered fetch in mc")
         if let cached = thumbnails[id] {
             completionClosure(cached)
         } else {
